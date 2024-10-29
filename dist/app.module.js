@@ -16,12 +16,11 @@ let AppModule = class AppModule {
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [],
+        imports: [
+            mongoose_1.MongooseModule.forRoot('mongodb+srv://vleonpatron06:3H6ggbbKS9D5lzjh@cluster0.amgf5.mongodb.net/db_translator?retryWrites=true&w=majority&appName=Cluster0'),
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
-    }),
-    (0, common_1.Module)({
-        imports: [mongoose_1.MongooseModule.forRoot('mongodb+srv://vleonpatron06:3H6ggbbKS9D5lzjh@cluster0.amgf5.mongodb.net/db_translator?retryWrites=true&w=majority&appName=Cluster0')],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
