@@ -11,6 +11,10 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const mongoose_1 = require("@nestjs/mongoose");
+const archivos_module_1 = require("./archivos/archivos.module");
+const audios_module_1 = require("./audios/audios.module");
+const significados_module_1 = require("./significados/significados.module");
+const palabras_module_1 = require("./palabras/palabras.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -18,6 +22,10 @@ exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             mongoose_1.MongooseModule.forRoot('mongodb+srv://jvegalomineth10:bZ9tTtAahdidPQO8@cluster0.1vujg.mongodb.net/translator_db?retryWrites=true&w=majority&appName=Cluster0'),
+            archivos_module_1.ArchivosModule,
+            audios_module_1.AudiosModule,
+            significados_module_1.SignificadosModule,
+            palabras_module_1.PalabrasModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
