@@ -5,22 +5,55 @@ import { UpdateArchivoDto } from './dto/update-archivo.dto';
 @Injectable()
 export class ArchivosService {
   create(createArchivoDto: CreateArchivoDto) {
-    return 'This action adds a new archivo';
+    return createArchivoDto;
   }
 
   findAll() {
-    return `This action returns all archivos`;
+    return [
+      {
+        id: 1, 
+        name: 'jesus', 
+        url: 'google.com/cariño', 
+        size: '5mb', 
+        format:'.mp3'
+      },
+      {
+        id: 2,
+         name: 'Esteban', 
+         url: 'google.com/arbol', 
+         size: '3mb', 
+         format:'.mp3'
+      },
+      {
+        id: 3, 
+        name: 'jesus', 
+        url: 'google.com/casa', 
+        size: '1mb', 
+        format:'.mp3'
+      }
+    ];
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} archivo`;
+    return {
+      id: 1, 
+      name: 'jesus', 
+      url: 'google.com/cariño', 
+      size: '5mb', 
+      format:'.mp3'
+    };
   }
 
   update(id: number, updateArchivoDto: UpdateArchivoDto) {
-    return `This action updates a #${id} archivo`;
+    return {
+      id: id,
+      updateArchivoDto,
+    };
   }
 
   remove(id: number) {
-    return `This action removes a #${id} archivo`;
+    return {
+      id,
+    };
   }
 }

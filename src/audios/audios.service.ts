@@ -5,22 +5,55 @@ import { UpdateAudioDto } from './dto/update-audio.dto';
 @Injectable()
 export class AudiosService {
   create(createAudioDto: CreateAudioDto) {
-    return 'This action adds a new audio';
+    return createAudioDto;
   }
 
   findAll() {
-    return `This action returns all audios`;
+    return [
+      {
+        id: 1,
+        name1: 'Esteban Regino',
+        duracion: 5,
+        date: 31/10/2024,
+        etiqueta1: 'juegos',
+        favoritos: 'si',
+        tiempodepausa1: 5,
+      },
+      { 
+        id: 2,
+        name2: 'Mario Ramos',
+        duracion: 10  ,
+        date: 31/10/2024,
+        etiqueta1: 'estudios',
+        favoritos: 'si',
+        tiempodepausa1: 6,
+        
+      },
+    ];
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} audio`;
+    return {
+      id: 1,
+      name1: 'Esteban Regino',
+      duracion: '5',
+      date: '31/10/2024',
+      etiqueta1: 'juegos',
+      favoritos: 'si',
+      tiempodepausa1: '5',
+    } ;
   }
 
   update(id: number, updateAudioDto: UpdateAudioDto) {
-    return `This action updates a #${id} audio`;
+    return {
+      id: id,
+      updateAudioDto,
+    };
   }
 
   remove(id: number) {
-    return `This action removes a #${id} audio`;
+    return {
+      id,
+    };
   }
 }

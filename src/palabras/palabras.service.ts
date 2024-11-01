@@ -5,22 +5,49 @@ import { UpdatePalabraDto } from './dto/update-palabra.dto';
 @Injectable()
 export class PalabrasService {
   create(createPalabraDto: CreatePalabraDto) {
-    return 'This action adds a new palabra';
+    return createPalabraDto;
   }
 
   findAll() {
-    return `This action returns all palabras`;
+    return 
+    [
+      {
+        id: 1, 
+        text: 'jesus', 
+        Image: 'representacion grafica'
+      },
+      {
+        id: 2, 
+        text: 'jesusdsada', 
+        Image: 'representacion grafica'
+      },
+      {
+        id: 3, 
+        text: 'jesusdsadaaa', 
+        Image: 'representacion grafica'
+      }
+    ];
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} palabra`;
+    return {
+      id: 1,
+      text: 'jesus',
+      Image: 'representacion'
+    }
+    ;
   }
 
   update(id: number, updatePalabraDto: UpdatePalabraDto) {
-    return `This action updates a #${id} palabra`;
+    return {
+      id: id,
+      updatePalabraDto,
+    };
   }
 
   remove(id: number) {
-    return `This action removes a #${id} palabra`;
+    return {
+      id,
+    };
   }
 }

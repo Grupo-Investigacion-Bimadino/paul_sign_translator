@@ -5,22 +5,49 @@ import { UpdateSignificadoDto } from './dto/update-significado.dto';
 @Injectable()
 export class SignificadosService {
   create(createSignificadoDto: CreateSignificadoDto) {
-    return 'This action adds a new significado';
+    return createSignificadoDto;
   }
 
   findAll() {
-    return `This action returns all significados`;
+    return 
+    [
+      {
+        id: 1, 
+        text: 'casas', 
+        Image: 'seña'
+      },
+      {
+        id: 2, 
+        text: 'perro', 
+        Image: 'seña'
+      },
+      {
+        id: 3, 
+        text: 'carro', 
+        Image: 'seña'
+      }
+      
+    ];
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} significado`;
+    return {
+      id: 1, 
+      text: 'casas', 
+      Image: 'seña'
+    };
   }
 
   update(id: number, updateSignificadoDto: UpdateSignificadoDto) {
-    return `This action updates a #${id} significado`;
+    return {
+      id: id,
+      updateSignificadoDto,
+    };
   }
 
   remove(id: number) {
-    return `This action removes a #${id} significado`;
+    return {
+      id,
+    };
   }
 }

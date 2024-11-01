@@ -10,19 +10,45 @@ exports.SignificadosService = void 0;
 const common_1 = require("@nestjs/common");
 let SignificadosService = class SignificadosService {
     create(createSignificadoDto) {
-        return 'This action adds a new significado';
+        return createSignificadoDto;
     }
     findAll() {
-        return `This action returns all significados`;
+        return;
+        [
+            {
+                id: 1,
+                text: 'casas',
+                Image: 'seña'
+            },
+            {
+                id: 2,
+                text: 'perro',
+                Image: 'seña'
+            },
+            {
+                id: 3,
+                text: 'carro',
+                Image: 'seña'
+            }
+        ];
     }
     findOne(id) {
-        return `This action returns a #${id} significado`;
+        return {
+            id: 1,
+            text: 'casas',
+            Image: 'seña'
+        };
     }
     update(id, updateSignificadoDto) {
-        return `This action updates a #${id} significado`;
+        return {
+            id: id,
+            updateSignificadoDto,
+        };
     }
     remove(id) {
-        return `This action removes a #${id} significado`;
+        return {
+            id,
+        };
     }
 };
 exports.SignificadosService = SignificadosService;

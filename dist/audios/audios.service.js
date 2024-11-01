@@ -10,19 +10,51 @@ exports.AudiosService = void 0;
 const common_1 = require("@nestjs/common");
 let AudiosService = class AudiosService {
     create(createAudioDto) {
-        return 'This action adds a new audio';
+        return createAudioDto;
     }
     findAll() {
-        return `This action returns all audios`;
+        return [
+            {
+                id: 1,
+                name1: 'Esteban Regino',
+                duracion: 5,
+                date: 31 / 10 / 2024,
+                etiqueta1: 'juegos',
+                favoritos: 'si',
+                tiempodepausa1: 5,
+            },
+            {
+                id: 2,
+                name2: 'Mario Ramos',
+                duracion: 10,
+                date: 31 / 10 / 2024,
+                etiqueta1: 'estudios',
+                favoritos: 'si',
+                tiempodepausa1: 6,
+            },
+        ];
     }
     findOne(id) {
-        return `This action returns a #${id} audio`;
+        return {
+            id: 1,
+            name1: 'Esteban Regino',
+            duracion: '5',
+            date: '31/10/2024',
+            etiqueta1: 'juegos',
+            favoritos: 'si',
+            tiempodepausa1: '5',
+        };
     }
     update(id, updateAudioDto) {
-        return `This action updates a #${id} audio`;
+        return {
+            id: id,
+            updateAudioDto,
+        };
     }
     remove(id) {
-        return `This action removes a #${id} audio`;
+        return {
+            id,
+        };
     }
 };
 exports.AudiosService = AudiosService;

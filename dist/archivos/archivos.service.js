@@ -10,19 +10,52 @@ exports.ArchivosService = void 0;
 const common_1 = require("@nestjs/common");
 let ArchivosService = class ArchivosService {
     create(createArchivoDto) {
-        return 'This action adds a new archivo';
+        return createArchivoDto;
     }
     findAll() {
-        return `This action returns all archivos`;
+        return [
+            {
+                id: 1,
+                name: 'jesus',
+                url: 'google.com/cariño',
+                size: '5mb',
+                format: '.mp3'
+            },
+            {
+                id: 2,
+                name: 'Esteban',
+                url: 'google.com/arbol',
+                size: '3mb',
+                format: '.mp3'
+            },
+            {
+                id: 3,
+                name: 'jesus',
+                url: 'google.com/casa',
+                size: '1mb',
+                format: '.mp3'
+            }
+        ];
     }
     findOne(id) {
-        return `This action returns a #${id} archivo`;
+        return {
+            id: 1,
+            name: 'jesus',
+            url: 'google.com/cariño',
+            size: '5mb',
+            format: '.mp3'
+        };
     }
     update(id, updateArchivoDto) {
-        return `This action updates a #${id} archivo`;
+        return {
+            id: id,
+            updateArchivoDto,
+        };
     }
     remove(id) {
-        return `This action removes a #${id} archivo`;
+        return {
+            id,
+        };
     }
 };
 exports.ArchivosService = ArchivosService;
