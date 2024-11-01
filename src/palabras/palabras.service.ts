@@ -31,7 +31,7 @@ export class PalabrasService {
 
   findOne(id: number) {
     return {
-      id: 1,
+      id,
       text: 'jesus',
       Image: 'representacion'
     }
@@ -40,7 +40,7 @@ export class PalabrasService {
 
   update(id: number, updatePalabraDto: UpdatePalabraDto) {
     return {
-      id: id,
+      id,
       updatePalabraDto,
     };
   }

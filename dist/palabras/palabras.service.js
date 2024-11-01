@@ -34,14 +34,14 @@ let PalabrasService = class PalabrasService {
     }
     findOne(id) {
         return {
-            id: 1,
+            id,
             text: 'jesus',
             Image: 'representacion'
         };
     }
     update(id, updatePalabraDto) {
         return {
-            id: id,
+            id,
             updatePalabraDto,
         };
     }

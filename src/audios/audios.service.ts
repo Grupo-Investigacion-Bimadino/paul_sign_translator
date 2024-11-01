@@ -34,7 +34,7 @@ export class AudiosService {
 
   findOne(id: number) {
     return {
-      id: 1,
+      id,
       name1: 'Esteban Regino',
       duracion: '5',
       date: '31/10/2024',
@@ -46,7 +46,7 @@ export class AudiosService {
 
   update(id: number, updateAudioDto: UpdateAudioDto) {
     return {
-      id: id,
+      id,
       updateAudioDto,
     };
   }

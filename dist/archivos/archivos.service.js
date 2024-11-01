@@ -39,7 +39,7 @@ let ArchivosService = class ArchivosService {
     }
     findOne(id) {
         return {
-            id: 1,
+            id,
             name: 'jesus',
             url: 'google.com/cariño',
             size: '5mb',
@@ -48,7 +48,7 @@ let ArchivosService = class ArchivosService {
     }
     update(id, updateArchivoDto) {
         return {
-            id: id,
+            id,
             updateArchivoDto,
         };
     }

@@ -36,7 +36,7 @@ let AudiosService = class AudiosService {
     }
     findOne(id) {
         return {
-            id: 1,
+            id,
             name1: 'Esteban Regino',
             duracion: '5',
             date: '31/10/2024',
@@ -47,7 +47,7 @@ let AudiosService = class AudiosService {
     }
     update(id, updateAudioDto) {
         return {
-            id: id,
+            id,
             updateAudioDto,
         };
     }

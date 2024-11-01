@@ -32,7 +32,7 @@ export class SignificadosService {
 
   findOne(id: number) {
     return {
-      id: 1, 
+      id, 
       text: 'casas', 
       Image: 'seña'
     };
@@ -40,7 +40,7 @@ export class SignificadosService {
 
   update(id: number, updateSignificadoDto: UpdateSignificadoDto) {
     return {
-      id: id,
+      id,
       updateSignificadoDto,
     };
   }

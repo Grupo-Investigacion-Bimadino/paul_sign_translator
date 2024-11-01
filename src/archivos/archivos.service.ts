@@ -36,7 +36,7 @@ export class ArchivosService {
 
   findOne(id: number) {
     return {
-      id: 1, 
+      id, 
       name: 'jesus', 
       url: 'google.com/cariño', 
       size: '5mb', 
@@ -46,7 +46,7 @@ export class ArchivosService {
 
   update(id: number, updateArchivoDto: UpdateArchivoDto) {
     return {
-      id: id,
+      id,
       updateArchivoDto,
     };
   }
