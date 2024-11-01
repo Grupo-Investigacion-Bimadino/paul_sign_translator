@@ -21,7 +21,7 @@ export class AudiosService {
       },
       { 
         id: 2,
-        name2: 'Mario Ramos',
+        name2: 'Estivinson Buelvas',
         duracion: 10  ,
         date: 31/10/2024,
         etiqueta1: 'estudios',

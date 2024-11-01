@@ -34,14 +34,14 @@ let SignificadosService = class SignificadosService {
     }
     findOne(id) {
         return {
-            id: 1,
+            id,
             text: 'casas',
             Image: 'seña'
         };
     }
     update(id, updateSignificadoDto) {
         return {
-            id: id,
+            id,
             updateSignificadoDto,
         };
     }
