@@ -1,13 +1,9 @@
 import { Module } from '@nestjs/common';
-import { archivosService } from './archivos.service';
-import { archivosController } from './archivos.controller';
-import { MongooseModule } from '@nestjs/mongoose';
-import { archivos, archivosSchema } from './schemas/archivosMessage.schema';
-import { archivos } from './schema/archivos.schema';
+import { ArchivosService } from './archivos.service';
+import { ArchivosController } from './archivos.controller';
 
 @Module({
-  imports: [
-    // adicionar esto
-    MongooseModule.forFeature([{ name: archivos.name, schema: archivosschema }]),
-    
-export class archivosModule {}
+  controllers: [ArchivosController],
+  providers: [ArchivosService],
+})
+export class ArchivosModule {}
