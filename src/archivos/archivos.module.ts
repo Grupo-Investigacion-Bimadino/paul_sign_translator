@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
-import { ArchivosService } from './archivos.service';
-import { ArchivosController } from './archivos.controller';
+import { archivosService } from './archivos.service';
+import { archivosController } from './archivos.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Message, MessageSchema } from './schemas/chatMessage.schema';
+import { archivos, archivosSchema } from './schemas/archivosMessage.schema';
+import { archivos } from './schema/archivos.schema';
 
 @Module({
   imports: [
     // adicionar esto
-    MongooseModule.forFeature([{ name: Message.name, schema: MessageSchema }]),
+    MongooseModule.forFeature([{ name: archivos.name, schema: archivosschema }]),
     
-export class ArchivosModule {}
+export class archivosModule {}
