@@ -10,11 +10,16 @@ exports.ArchivosModule = void 0;
 const common_1 = require("@nestjs/common");
 const archivos_service_1 = require("./archivos.service");
 const archivos_controller_1 = require("./archivos.controller");
+const mongoose_1 = require("@nestjs/mongoose");
+const archivos_schema_1 = require("./schema/archivos.schema");
 let ArchivosModule = class ArchivosModule {
 };
 exports.ArchivosModule = ArchivosModule;
 exports.ArchivosModule = ArchivosModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            mongoose_1.MongooseModule.forFeature([{ name: archivos_schema_1.archivos.name, schema: archivos_schema_1.MessageSchema }]),
+        ],
         controllers: [archivos_controller_1.ArchivosController],
         providers: [archivos_service_1.ArchivosService],
     })
