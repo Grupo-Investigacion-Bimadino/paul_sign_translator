@@ -10,11 +10,16 @@ exports.AudiosModule = void 0;
 const common_1 = require("@nestjs/common");
 const audios_service_1 = require("./audios.service");
 const audios_controller_1 = require("./audios.controller");
+const mongoose_1 = require("@nestjs/mongoose");
+const audios_schema_1 = require("./schema/audios.schema");
 let AudiosModule = class AudiosModule {
 };
 exports.AudiosModule = AudiosModule;
 exports.AudiosModule = AudiosModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            mongoose_1.MongooseModule.forFeature([{ name: audios_schema_1.audios.name, schema: audios_schema_1.MessageSchema }]),
+        ],
         controllers: [audios_controller_1.AudiosController],
         providers: [audios_service_1.AudiosService],
     })

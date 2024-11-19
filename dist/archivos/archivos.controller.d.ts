@@ -4,7 +4,11 @@ import { UpdateArchivoDto } from './dto/update-archivo.dto';
 export declare class ArchivosController {
     private readonly archivosService;
     constructor(archivosService: ArchivosService);
-    create(createArchivoDto: CreateArchivoDto): CreateArchivoDto;
+    create(createArchivoDto: CreateArchivoDto): Promise<import("mongoose").Document<unknown, {}, import("./schema/archivos.schema").archivos> & import("./schema/archivos.schema").archivos & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
     findAll(): {
         id: number;
         name: string;

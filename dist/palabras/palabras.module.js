@@ -10,11 +10,16 @@ exports.PalabrasModule = void 0;
 const common_1 = require("@nestjs/common");
 const palabras_service_1 = require("./palabras.service");
 const palabras_controller_1 = require("./palabras.controller");
+const mongoose_1 = require("@nestjs/mongoose");
+const palabras_schema_1 = require("./schema/palabras.schema");
 let PalabrasModule = class PalabrasModule {
 };
 exports.PalabrasModule = PalabrasModule;
 exports.PalabrasModule = PalabrasModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            mongoose_1.MongooseModule.forFeature([{ name: palabras_schema_1.Palabras.name, schema: palabras_schema_1.MessageSchema }]),
+        ],
         controllers: [palabras_controller_1.PalabrasController],
         providers: [palabras_service_1.PalabrasService],
     })

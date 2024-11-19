@@ -10,11 +10,16 @@ exports.SignificadosModule = void 0;
 const common_1 = require("@nestjs/common");
 const significados_service_1 = require("./significados.service");
 const significados_controller_1 = require("./significados.controller");
+const mongoose_1 = require("@nestjs/mongoose");
+const significado_schema_1 = require("./schema/significado.schema");
 let SignificadosModule = class SignificadosModule {
 };
 exports.SignificadosModule = SignificadosModule;
 exports.SignificadosModule = SignificadosModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            mongoose_1.MongooseModule.forFeature([{ name: significado_schema_1.significado.name, schema: significado_schema_1.MessageSchema }]),
+        ],
         controllers: [significados_controller_1.SignificadosController],
         providers: [significados_service_1.SignificadosService],
     })
