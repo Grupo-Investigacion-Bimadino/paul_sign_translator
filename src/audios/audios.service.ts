@@ -39,7 +39,7 @@ export class AudiosService {
     }
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     try{
       const deleteaudio = await this.audiosModel.findByIdAndDelete(id)
       return deleteaudio;

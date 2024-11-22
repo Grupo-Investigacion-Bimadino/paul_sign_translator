@@ -29,6 +29,6 @@ export class AudiosController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.audiosService.remove(+id);
+    return this.audiosService.remove(id);
   }
 }

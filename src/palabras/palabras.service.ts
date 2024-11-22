@@ -1,53 +1,50 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePalabraDto } from './dto/create-palabra.dto';
 import { UpdatePalabraDto } from './dto/update-palabra.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Palabra } from './entities/palabra.entity';
+import { Palabras } from './schema/palabras.schema';
 
 @Injectable()
 export class PalabrasService {
-  create(createPalabraDto: CreatePalabraDto) {
-    return createPalabraDto;
+  constructor(@InjectModel(Palabras.name) private palabrasModel: Model<Palabras>) {}
+ async create(createPalabraDto: CreatePalabraDto) {
+    const createpalabras = new this.palabrasModel(createPalabraDto);
+    const result = await createpalabras.save();
+    return  result;
   }
 
   findAll() {
-    return 
-    [
-      {
-        id: 1, 
-        text: 'jesus', 
-        Image: 'representacion grafica'
-      },
-      {
-        id: 2, 
-        text: 'jesusdsada', 
-        Image: 'representacion grafica'
-      },
-      {
-        id: 3, 
-        text: 'jesusdsadaaa', 
-        Image: 'representacion grafica'
-      }
-    ];
+    return this.palabrasModel.find();
+    
   }
 
-  findOne(id: number) {
-    return {
-      id,
-      text: 'jesus',
-      Image: 'representacion'
+  findOne(id: string) {
+    return this.palabrasModel.findById(id);
+  }
+
+  async update(id: string, updatePalabraDto: UpdatePalabraDto) {
+    try{
+      const updatepalabra = await this.palabrasModel.findByIdAndUpdate(
+        id, updatePalabraDto, {new: true}
+      );
+      return updatepalabra
+     
     }
-    ;
+    finally{
+      console.log("actualizado");
+
+    }
   }
 
-  update(id: number, updatePalabraDto: UpdatePalabraDto) {
-    return {
-      id,
-      updatePalabraDto,
-    };
-  }
+  async remove(id: string) {
+    try{
+      const deletepalabras = await this.palabrasModel.findByIdAndDelete(id)
+      return deletepalabras;
+    }
+    finally{
 
-  remove(id: number) {
-    return {
-      id,
-    };
+    }
   }
 }

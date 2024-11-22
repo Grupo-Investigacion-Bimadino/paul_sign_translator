@@ -19,16 +19,16 @@ export class SignificadosController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.significadosService.findOne(+id);
+    return this.significadosService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateSignificadoDto: UpdateSignificadoDto) {
-    return this.significadosService.update(+id, updateSignificadoDto);
+    return this.significadosService.update(id, updateSignificadoDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.significadosService.remove(+id);
+    return this.significadosService.remove(id);
   }
 }

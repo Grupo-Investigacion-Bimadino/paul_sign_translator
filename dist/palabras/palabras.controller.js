@@ -28,13 +28,13 @@ let PalabrasController = class PalabrasController {
         return this.palabrasService.findAll();
     }
     findOne(id) {
-        return this.palabrasService.findOne(+id);
+        return this.palabrasService.findOne(id);
     }
     update(id, updatePalabraDto) {
-        return this.palabrasService.update(+id, updatePalabraDto);
+        return this.palabrasService.update(id, updatePalabraDto);
     }
     remove(id) {
-        return this.palabrasService.remove(+id);
+        return this.palabrasService.remove(id);
     }
 };
 exports.PalabrasController = PalabrasController;

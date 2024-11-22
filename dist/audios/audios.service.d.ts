@@ -33,7 +33,7 @@ export declare class AudiosService {
     }> & {
         __v?: number;
     }>;
-    remove(id: number): Promise<import("mongoose").Document<unknown, {}, audios> & audios & Required<{
+    remove(id: string): Promise<import("mongoose").Document<unknown, {}, audios> & audios & Required<{
         _id: unknown;
     }> & {
         __v?: number;

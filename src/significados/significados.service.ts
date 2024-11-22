@@ -1,53 +1,49 @@
 import { Injectable } from '@nestjs/common';
 import { CreateSignificadoDto } from './dto/create-significado.dto';
 import { UpdateSignificadoDto } from './dto/update-significado.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { significado } from './schema/significado.schema';
 
 @Injectable()
 export class SignificadosService {
-  create(createSignificadoDto: CreateSignificadoDto) {
-    return createSignificadoDto;
+  constructor(@InjectModel(significado.name) private significadosModel: Model<significado>) {}
+  async create(createSignificadoDto: CreateSignificadoDto) {
+    const createsignicado = new this.significadosModel(createSignificadoDto);
+    const result = await createsignicado.save();
+    return  result;
   }
 
   findAll() {
-    return 
-    [
-      {
-        id: 1, 
-        text: 'casas', 
-        Image: 'seña'
-      },
-      {
-        id: 2, 
-        text: 'perro', 
-        Image: 'seña'
-      },
-      {
-        id: 3, 
-        text: 'carro', 
-        Image: 'seña'
-      }
-      
-    ];
+    return this.significadosModel.find();
   }
 
-  findOne(id: number) {
-    return {
-      id, 
-      text: 'casas', 
-      Image: 'seña'
-    };
+  findOne(id: string) {
+    return this.significadosModel.findById(id);
   }
 
-  update(id: number, updateSignificadoDto: UpdateSignificadoDto) {
-    return {
-      id,
-      updateSignificadoDto,
-    };
+ async update(id: string, updateSignificadoDto: UpdateSignificadoDto) {
+  try{
+    const updatesignificado = await this.significadosModel.findByIdAndUpdate(
+      id, updateSignificadoDto, {new: true}
+    );
+    return updatesignificado
+   
+  }
+  finally{
+    console.log("actualizado");
+
+  }
   }
 
-  remove(id: number) {
-    return {
-      id,
-    };
+ async remove(id: string) {
+    try{
+      const deletesignificado = await this.significadosModel.findByIdAndDelete(id)
+      return deletesignificado;
+    }
+    finally{
+
+    }
   }
-}
+  }
+

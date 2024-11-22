@@ -19,16 +19,16 @@ export class PalabrasController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.palabrasService.findOne(+id);
+    return this.palabrasService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePalabraDto: UpdatePalabraDto) {
-    return this.palabrasService.update(+id, updatePalabraDto);
+    return this.palabrasService.update(id, updatePalabraDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.palabrasService.remove(+id);
+    return this.palabrasService.remove(id);
   }
 }

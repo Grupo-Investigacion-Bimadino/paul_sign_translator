@@ -34,7 +34,7 @@ let AudiosController = class AudiosController {
         return this.audiosService.update(id, updateAudioDto);
     }
     remove(id) {
-        return this.audiosService.remove(+id);
+        return this.audiosService.remove(id);
     }
 };
 exports.AudiosController = AudiosController;

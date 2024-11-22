@@ -4,18 +4,37 @@ import { UpdateSignificadoDto } from './dto/update-significado.dto';
 export declare class SignificadosController {
     private readonly significadosService;
     constructor(significadosService: SignificadosService);
-    create(createSignificadoDto: CreateSignificadoDto): CreateSignificadoDto;
-    findAll(): void;
-    findOne(id: string): {
-        id: number;
-        text: string;
-        Image: string;
-    };
-    update(id: string, updateSignificadoDto: UpdateSignificadoDto): {
-        id: number;
-        updateSignificadoDto: UpdateSignificadoDto;
-    };
-    remove(id: string): {
-        id: number;
-    };
+    create(createSignificadoDto: CreateSignificadoDto): Promise<import("mongoose").Document<unknown, {}, import("./schema/significado.schema").significado> & import("./schema/significado.schema").significado & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    findAll(): import("mongoose").Query<(import("mongoose").Document<unknown, {}, import("./schema/significado.schema").significado> & import("./schema/significado.schema").significado & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    })[], import("mongoose").Document<unknown, {}, import("./schema/significado.schema").significado> & import("./schema/significado.schema").significado & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }, {}, import("./schema/significado.schema").significado, "find", {}>;
+    findOne(id: string): import("mongoose").Query<import("mongoose").Document<unknown, {}, import("./schema/significado.schema").significado> & import("./schema/significado.schema").significado & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }, import("mongoose").Document<unknown, {}, import("./schema/significado.schema").significado> & import("./schema/significado.schema").significado & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }, {}, import("./schema/significado.schema").significado, "findOne", {}>;
+    update(id: string, updateSignificadoDto: UpdateSignificadoDto): Promise<import("mongoose").Document<unknown, {}, import("./schema/significado.schema").significado> & import("./schema/significado.schema").significado & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    remove(id: string): Promise<import("mongoose").Document<unknown, {}, import("./schema/significado.schema").significado> & import("./schema/significado.schema").significado & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
 }

@@ -28,13 +28,13 @@ let SignificadosController = class SignificadosController {
         return this.significadosService.findAll();
     }
     findOne(id) {
-        return this.significadosService.findOne(+id);
+        return this.significadosService.findOne(id);
     }
     update(id, updateSignificadoDto) {
-        return this.significadosService.update(+id, updateSignificadoDto);
+        return this.significadosService.update(id, updateSignificadoDto);
     }
     remove(id) {
-        return this.significadosService.remove(+id);
+        return this.significadosService.remove(id);
     }
 };
 exports.SignificadosController = SignificadosController;
