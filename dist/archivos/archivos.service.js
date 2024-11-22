@@ -26,50 +26,28 @@ let ArchivosService = class ArchivosService {
         const result = await createdarchivos.save();
         return result;
     }
-    findAll() {
-        return [
-            {
-                id: 1,
-                name: 'jesus',
-                url: 'google.com/cariño',
-                size: '5mb',
-                format: '.mp3'
-            },
-            {
-                id: 2,
-                name: 'Esteban',
-                url: 'google.com/arbol',
-                size: '3mb',
-                format: '.mp3'
-            },
-            {
-                id: 3,
-                name: 'jesus',
-                url: 'google.com/casa',
-                size: '1mb',
-                format: '.mp3'
-            }
-        ];
+    async findAll() {
+        return this.archivosModel.find();
     }
-    findOne(id) {
-        return {
-            id,
-            name: 'jesus',
-            url: 'google.com/cariño',
-            size: '5mb',
-            format: '.mp3'
-        };
+    async findOne(id) {
+        return this.archivosModel.findById(id);
     }
-    update(id, updateArchivoDto) {
-        return {
-            id,
-            updateArchivoDto,
-        };
+    async update(id, updateArchivoDto) {
+        try {
+            const updatearchivo = await this.archivosModel.findByIdAndUpdate(id, updateArchivoDto, { new: true });
+            return updatearchivo;
+        }
+        finally {
+            console.log("actualizado");
+        }
     }
-    remove(id) {
-        return {
-            id,
-        };
+    async remove(id) {
+        try {
+            const deletearchivo = await this.archivosModel.findByIdAndDelete(id);
+            return deletearchivo;
+        }
+        finally {
+        }
     }
 };
 exports.ArchivosService = ArchivosService;

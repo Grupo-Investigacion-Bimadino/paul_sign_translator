@@ -28,10 +28,10 @@ let AudiosController = class AudiosController {
         return this.audiosService.findAll();
     }
     findOne(id) {
-        return this.audiosService.findOne(+id);
+        return this.audiosService.findOne(id);
     }
     update(id, updateAudioDto) {
-        return this.audiosService.update(+id, updateAudioDto);
+        return this.audiosService.update(id, updateAudioDto);
     }
     remove(id) {
         return this.audiosService.remove(+id);

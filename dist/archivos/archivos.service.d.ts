@@ -10,25 +10,24 @@ export declare class ArchivosService {
     }> & {
         __v?: number;
     }>;
-    findAll(): {
-        id: number;
-        name: string;
-        url: string;
-        size: string;
-        format: string;
-    }[];
-    findOne(id: number): {
-        id: number;
-        name: string;
-        url: string;
-        size: string;
-        format: string;
-    };
-    update(id: number, updateArchivoDto: UpdateArchivoDto): {
-        id: number;
-        updateArchivoDto: UpdateArchivoDto;
-    };
-    remove(id: number): {
-        id: number;
-    };
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, archivos> & archivos & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    })[]>;
+    findOne(id: string): Promise<import("mongoose").Document<unknown, {}, archivos> & archivos & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    update(id: string, updateArchivoDto: UpdateArchivoDto): Promise<import("mongoose").Document<unknown, {}, archivos> & archivos & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    remove(id: string): Promise<import("mongoose").Document<unknown, {}, archivos> & archivos & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
 }

@@ -28,13 +28,13 @@ let ArchivosController = class ArchivosController {
         return this.archivosService.findAll();
     }
     findOne(id) {
-        return this.archivosService.findOne(+id);
+        return this.archivosService.findOne(id);
     }
     update(id, updateArchivoDto) {
-        return this.archivosService.update(+id, updateArchivoDto);
+        return this.archivosService.update(id, updateArchivoDto);
     }
     remove(id) {
-        return this.archivosService.remove(+id);
+        return this.archivosService.remove(id);
     }
 };
 exports.ArchivosController = ArchivosController;

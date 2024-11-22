@@ -9,25 +9,24 @@ export declare class ArchivosController {
     }> & {
         __v?: number;
     }>;
-    findAll(): {
-        id: number;
-        name: string;
-        url: string;
-        size: string;
-        format: string;
-    }[];
-    findOne(id: string): {
-        id: number;
-        name: string;
-        url: string;
-        size: string;
-        format: string;
-    };
-    update(id: string, updateArchivoDto: UpdateArchivoDto): {
-        id: number;
-        updateArchivoDto: UpdateArchivoDto;
-    };
-    remove(id: string): {
-        id: number;
-    };
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, import("./schema/archivos.schema").archivos> & import("./schema/archivos.schema").archivos & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    })[]>;
+    findOne(id: string): Promise<import("mongoose").Document<unknown, {}, import("./schema/archivos.schema").archivos> & import("./schema/archivos.schema").archivos & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    update(id: string, updateArchivoDto: UpdateArchivoDto): Promise<import("mongoose").Document<unknown, {}, import("./schema/archivos.schema").archivos> & import("./schema/archivos.schema").archivos & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    remove(id: string): Promise<import("mongoose").Document<unknown, {}, import("./schema/archivos.schema").archivos> & import("./schema/archivos.schema").archivos & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
 }

@@ -15,52 +15,39 @@ export class ArchivosService {
     return  result;
   }
 
-  findAll() {
-    return [
-      {
-        id: 1, 
-        name: 'jesus', 
-        url: 'google.com/cariño', 
-        size: '5mb', 
-        format:'.mp3'
-      },
-      {
-        id: 2,
-         name: 'Esteban', 
-         url: 'google.com/arbol', 
-         size: '3mb', 
-         format:'.mp3'
-      },
-      {
-        id: 3, 
-        name: 'jesus', 
-        url: 'google.com/casa', 
-        size: '1mb', 
-        format:'.mp3'
-      }
-    ];
+  async findAll() {
+    return this.archivosModel.find();
+     
+      
   }
 
-  findOne(id: number) {
-    return {
-      id, 
-      name: 'jesus', 
-      url: 'google.com/cariño', 
-      size: '5mb', 
-      format:'.mp3'
-    };
+  async findOne(id: string) {
+    return this.archivosModel.findById(id);
+     
   }
 
-  update(id: number, updateArchivoDto: UpdateArchivoDto) {
-    return {
-      id,
-      updateArchivoDto,
-    };
+  async update(id: string, updateArchivoDto: UpdateArchivoDto) {
+    try{
+      const updatearchivo = await this.archivosModel.findByIdAndUpdate(
+        id, updateArchivoDto, {new: true}
+      );
+      return updatearchivo
+     
+    }
+    finally{
+      console.log("actualizado");
+
+    }
   }
 
-  remove(id: number) {
-    return {
-      id,
-    };
+  async remove(id: string) {
+    try{
+      const deletearchivo = await this.archivosModel.findByIdAndDelete(id)
+      return deletearchivo;
+    }
+    finally{
+
+    }
   }
+  
 }

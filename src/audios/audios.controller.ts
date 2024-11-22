@@ -19,12 +19,12 @@ export class AudiosController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.audiosService.findOne(+id);
+    return this.audiosService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateAudioDto: UpdateAudioDto) {
-    return this.audiosService.update(+id, updateAudioDto);
+    return this.audiosService.update(id, updateAudioDto);
   }
 
   @Delete(':id')

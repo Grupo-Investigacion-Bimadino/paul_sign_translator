@@ -1,40 +1,41 @@
 import { CreateAudioDto } from './dto/create-audio.dto';
 import { UpdateAudioDto } from './dto/update-audio.dto';
+import { Model } from 'mongoose';
+import { audios } from './schema/audios.schema';
 export declare class AudiosService {
-    create(createAudioDto: CreateAudioDto): CreateAudioDto;
-    findAll(): ({
-        id: number;
-        name1: string;
-        duracion: number;
-        date: number;
-        etiqueta1: string;
-        favoritos: string;
-        tiempodepausa1: number;
-        name2?: undefined;
-    } | {
-        id: number;
-        name2: string;
-        duracion: number;
-        date: number;
-        etiqueta1: string;
-        favoritos: string;
-        tiempodepausa1: number;
-        name1?: undefined;
-    })[];
-    findOne(id: number): {
-        id: number;
-        name1: string;
-        duracion: string;
-        date: string;
-        etiqueta1: string;
-        favoritos: string;
-        tiempodepausa1: string;
-    };
-    update(id: number, updateAudioDto: UpdateAudioDto): {
-        id: number;
-        updateAudioDto: UpdateAudioDto;
-    };
-    remove(id: number): {
-        id: number;
-    };
+    private audiosModel;
+    constructor(audiosModel: Model<audios>);
+    create(createAudioDto: CreateAudioDto): Promise<import("mongoose").Document<unknown, {}, audios> & audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    findAll(): import("mongoose").Query<(import("mongoose").Document<unknown, {}, audios> & audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    })[], import("mongoose").Document<unknown, {}, audios> & audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }, {}, audios, "find", {}>;
+    findOne(id: string): import("mongoose").Query<import("mongoose").Document<unknown, {}, audios> & audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }, import("mongoose").Document<unknown, {}, audios> & audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }, {}, audios, "findOne", {}>;
+    update(id: string, updateAudioDto: UpdateAudioDto): Promise<import("mongoose").Document<unknown, {}, audios> & audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    remove(id: number): Promise<import("mongoose").Document<unknown, {}, audios> & audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
 }

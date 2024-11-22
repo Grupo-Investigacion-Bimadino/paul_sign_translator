@@ -4,40 +4,37 @@ import { UpdateAudioDto } from './dto/update-audio.dto';
 export declare class AudiosController {
     private readonly audiosService;
     constructor(audiosService: AudiosService);
-    create(createAudioDto: CreateAudioDto): CreateAudioDto;
-    findAll(): ({
-        id: number;
-        name1: string;
-        duracion: number;
-        date: number;
-        etiqueta1: string;
-        favoritos: string;
-        tiempodepausa1: number;
-        name2?: undefined;
-    } | {
-        id: number;
-        name2: string;
-        duracion: number;
-        date: number;
-        etiqueta1: string;
-        favoritos: string;
-        tiempodepausa1: number;
-        name1?: undefined;
-    })[];
-    findOne(id: string): {
-        id: number;
-        name1: string;
-        duracion: string;
-        date: string;
-        etiqueta1: string;
-        favoritos: string;
-        tiempodepausa1: string;
-    };
-    update(id: string, updateAudioDto: UpdateAudioDto): {
-        id: number;
-        updateAudioDto: UpdateAudioDto;
-    };
-    remove(id: string): {
-        id: number;
-    };
+    create(createAudioDto: CreateAudioDto): Promise<import("mongoose").Document<unknown, {}, import("./schema/audios.schema").audios> & import("./schema/audios.schema").audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    findAll(): import("mongoose").Query<(import("mongoose").Document<unknown, {}, import("./schema/audios.schema").audios> & import("./schema/audios.schema").audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    })[], import("mongoose").Document<unknown, {}, import("./schema/audios.schema").audios> & import("./schema/audios.schema").audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }, {}, import("./schema/audios.schema").audios, "find", {}>;
+    findOne(id: string): import("mongoose").Query<import("mongoose").Document<unknown, {}, import("./schema/audios.schema").audios> & import("./schema/audios.schema").audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }, import("mongoose").Document<unknown, {}, import("./schema/audios.schema").audios> & import("./schema/audios.schema").audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }, {}, import("./schema/audios.schema").audios, "findOne", {}>;
+    update(id: string, updateAudioDto: UpdateAudioDto): Promise<import("mongoose").Document<unknown, {}, import("./schema/audios.schema").audios> & import("./schema/audios.schema").audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
+    remove(id: string): Promise<import("mongoose").Document<unknown, {}, import("./schema/audios.schema").audios> & import("./schema/audios.schema").audios & Required<{
+        _id: unknown;
+    }> & {
+        __v?: number;
+    }>;
 }

@@ -1,59 +1,51 @@
 import { Injectable } from '@nestjs/common';
 import { CreateAudioDto } from './dto/create-audio.dto';
 import { UpdateAudioDto } from './dto/update-audio.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { audios } from './schema/audios.schema';
 
 @Injectable()
 export class AudiosService {
-  create(createAudioDto: CreateAudioDto) {
-    return createAudioDto;
+  constructor(@InjectModel(audios.name) private audiosModel: Model<audios>) {}
+  async create(createAudioDto: CreateAudioDto) {
+    const createdaudios = new this.audiosModel(createAudioDto);
+    const result = await createdaudios.save();
+    return  result;
+    
+
   }
 
   findAll() {
-    return [
-      {
-        id: 1,
-        name1: 'Esteban Regino',
-        duracion: 5,
-        date: 31/10/2024,
-        etiqueta1: 'juegos',
-        favoritos: 'si',
-        tiempodepausa1: 5,
-      },
-      { 
-        id: 2,
-        name2: 'Estivinson Buelvas',
-        duracion: 10  ,
-        date: 31/10/2024,
-        etiqueta1: 'estudios',
-        favoritos: 'si',
-        tiempodepausa1: 6,
-        
-      },
-    ];
+    return this.audiosModel.find();
+     
   }
 
-  findOne(id: number) {
-    return {
-      id,
-      name1: 'Esteban Regino',
-      duracion: '5',
-      date: '31/10/2024',
-      etiqueta1: 'juegos',
-      favoritos: 'si',
-      tiempodepausa1: '5',
-    } ;
+  findOne(id: string) {
+    return this.audiosModel.findById(id);
   }
 
-  update(id: number, updateAudioDto: UpdateAudioDto) {
-    return {
-      id,
-      updateAudioDto,
-    };
+  async update(id: string, updateAudioDto: UpdateAudioDto) {
+    try{
+      const updateaudio = await this.audiosModel.findByIdAndUpdate(
+        id, updateAudioDto, {new: true}
+      );
+      return updateaudio
+     
+    }
+    finally{
+      console.log("actualizado");
+
+    }
   }
 
-  remove(id: number) {
-    return {
-      id,
-    };
+  async remove(id: number) {
+    try{
+      const deleteaudio = await this.audiosModel.findByIdAndDelete(id)
+      return deleteaudio;
+    }
+    finally{
+
+    }
   }
 }
